@@ -1,0 +1,22 @@
+ Egy könyvnek van:
+
+    írója (string), min 3 betű, max 50 betű
+    címe (string), min 3 betű, max 50 betű
+    kiadási éve, egész szám, min 1910, max az aktuális év,
+    ára, egész szám, maximum 15e Ft, 5-el osztható
+    műfaja, enum: mese, regény, történelem, szakkönyv, külföldi
+
+A könyveket egy könyvespolcon tároljuk, amelynek:
+
+    tárol könyvek egy listáját, melyen nem szerepelhet null érték, és egy könyv maximum egyszer lehet rajta,
+    fv hozzáad(...), paramétere egy könyv, amelyet a könyvespolc listán kívánunk tárolni.
+    összár csak olvasható property, megadja a könyvespolcon tárolt könyvek összértékét,
+    fv keres(...) egy paramétere egy string, egy író neve, visszatér könyvek egy listájával, amelyek a könyvespolcon vannak tárolva, és amelyeknek az írója a megadott. ha nem talál ilyen könyvet, akkor 0 elemű listával tér vissza.
+
+Főprogram:
+
+    véletlen értékekkel inicializál egy könyvespolcot, 40 könyvvel,
+    a könyv íróit egy listáról választja ki, a címet random állítja elő, a műfajt is random választja,
+    kiírja a könyvespolc összértékét,
+    kiírja besorszámozva a képernyőre az írók listáját, a felhasználó a sorszám beírásával választ írót
+    kilistázza a választott íróhoz tartozó könyvek címeit

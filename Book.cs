@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CA221027
+{
+    internal class Book
+    {
+        private string author;
+        private string title;
+        private int yearOfPublication;
+        private float price;
+
+        public string Author
+        {
+            get => author;
+            set
+            {
+                if (value.Length < 3 || value.Length > 50)
+                    throw new Exception("The name of the author must be [3; 50] char length");
+                author = value;
+            }
+        }
+        public string Title
+        {
+            get => title;
+            set
+            {
+                if (value.Length < 3 || value.Length > 50)
+                    throw new Exception("The title of the book must be [3; 50] char length");
+                title = value;
+            }
+        }
+        public int YearOfPublication
+        {
+            get => yearOfPublication;
+            set
+            {
+                if (value < 1910 || value > DateTime.Now.Year)
+                    throw new Exception($"The year of publication must be in [1910; {DateTime.Now.Year}]");
+                yearOfPublication = value;
+            }
+        }
+        public float Price
+        {
+            get => price;
+            set
+            {
+                if (value > 15000)
+                    throw new Exception("A book can't be more expensive than 15K");
+                if (value % 5 != 0)
+                    throw new Exception("A book's price must be divisible by five");
+                price = value;
+            }
+        }
+
+        public Genre Genre { get; set; }
+    }
+
+    public enum Genre
+    {
+        Fiction,
+        Mystery,
+        Thriller,
+        Horror,
+        Historical,
+        Romance,
+        Western,
+        ScienceFiction,
+        Fantasy,
+        Dystopian,
+    }
+}
