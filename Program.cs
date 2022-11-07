@@ -4,12 +4,15 @@
     {
         static void Main()
         {
-            Shelf shelf = new();
-            Book book = new()
-            {
-                Author = "Juhász Zoltán"
-            };
-            shelf.Add(book);
+            Shelf shelf = Shelf.InitRandomShelf(40);
+            Console.WriteLine($"SoP: {shelf.TotalPrice}");
+
+            Book b = new Book(
+                author: "Zolikaaa",
+                title: "Az élet szar!",
+                yearOfPublication: 2022,
+                price: 1500f,
+                genre: Genre.Horror);
         }
     }
 }

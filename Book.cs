@@ -13,6 +13,26 @@ namespace CA221027
         private int yearOfPublication;
         private float price;
 
+        public static readonly string[] RandomNames = {
+            "Bognár Márk",
+            "Kapolcs Flórián",
+            "Fábián Marcell",
+            "Kozma Zoltán",
+            "Balázs Szilveszter",
+            "Jakab Sándor",
+            "Szűts István",
+            "Mészáros Márton",
+            "Szilágyi Tibor",
+            "Dudás Alex"
+        };
+        public static List<string> GetRandomTitles()
+        {
+            List<string> titles = new();
+            using StreamReader sr = new(@"..\..\..\res\titles.txt");
+            while (!sr.EndOfStream) titles.Add(sr.ReadLine());
+            return titles;
+        }
+
         public string Author
         {
             get => author;
@@ -55,21 +75,29 @@ namespace CA221027
                 price = value;
             }
         }
-
         public Genre Genre { get; set; }
+
+        public Book(string author, string title, int yearOfPublication, float price, Genre genre)
+        {
+            Author = author;
+            Title = title;
+            YearOfPublication = yearOfPublication;
+            Price = price;
+            Genre = genre;
+        }
     }
 
     public enum Genre
     {
-        Fiction,
-        Mystery,
-        Thriller,
-        Horror,
-        Historical,
-        Romance,
-        Western,
-        ScienceFiction,
-        Fantasy,
         Dystopian,
+        Fantasy,
+        Fiction,
+        Historical,
+        Horror,
+        Mystery,
+        Romance,
+        ScienceFiction,
+        Thriller,
+        Western,
     }
 }
